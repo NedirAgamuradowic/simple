@@ -1,0 +1,116 @@
+@mixin h1($color:$whiteColor) {
+	font-size: 4rem;
+	color: $color;
+	font-family: $mainfont;
+	text-shadow: $mainShadow;
+	font-weight: 500;
+	margin-bottom: 1.8rem;
+
+	@media screen and ($tablet) {
+		font-size: 5rem;
+		margin-bottom: 3rem;
+	}
+}
+
+@mixin h2($align:center){
+	color: $primaryColor;
+	font-size: 3rem;
+	text-align: $align;
+	margin-bottom: 2rem;
+	font-weight: 500;
+}
+
+@mixin h3($align:center) {
+	color: $primaryColor;
+	font-size: 2.4rem;
+	text-align: $align;
+	font-weight: 500;
+}
+
+@mixin p($fontSize:16px){
+	color: $textColor;
+	font-size: $fontSize;
+}
+
+@mixin lead($color:$whiteColor){
+	color: $color;
+	font-size: 2rem;
+	line-height: 1.8;
+	text-shadow: $mainShadow;
+
+	@media screen and ($tablet) {
+		font-size: 1.7rem;
+	}
+}
+
+@mixin img($background:$primaryColor){
+	object-fit: cover;
+	object-position: center center;
+	background: $background;
+}
+
+@mixin flex($screen:$tablet) {
+	display: flex;
+	flex-direction: column;
+
+	@media screen and  ($screen) {
+		flex-direction:row;
+		justify-content: space-between;
+	}
+}
+@mixin section($paddingTop:5rem, $paddingBottom:5rem){
+	padding-top: $paddingTop;
+	padding-bottom: $paddingBottom;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+}
+
+
+%btn{
+	display: inline-block;
+	text-decoration: none;
+	background: $whiteColor;
+	color: $primaryColor;
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 1.8rem;
+	font-weight: bold;
+	line-height: 1;
+	padding: 1.4rem 4.8rem;
+	cursor: pointer;
+	border: none;
+	-webkit-user-select: none;
+	user-select: none;
+	border-radius: 5px;
+
+	&:hover{
+		background: darken($whiteColor, 20%);
+	}
+	&:focus{
+		outline: none;
+	}
+}
+
+%input {
+	font-size: 1.6rem;
+	background: $whiteColor;
+	color: $secondaryColor;
+	padding: 1.4rem 1rem;
+	line-height: 1;
+	border: none;
+	outline: none;
+	border-radius: .5rem;
+	width: 100%
+}
+%textarea{
+	 @extend %input;
+	 height: 13rem;
+	 resize: none;
+	 font-family: inherit;
+}
+
+@mixin container ($width:100rem){
+	width: 100%;
+	max-width: $width;
+	margin: 0 auto;
+}

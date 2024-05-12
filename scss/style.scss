@@ -1,0 +1,277 @@
+@import './utility/fonts';
+@import './utility/variables';
+@import './utility/reset';
+@import './utility/mixin';
+@import './utility/components';
+
+// stage section
+.stage{
+	@include section();
+	background: $primaryColor;
+
+	&__wrapper{
+		@include flex($tablet);
+	}
+
+	&__title{
+		@include h1();
+
+	}
+	&__list{
+		@include lead();
+		padding-left: 0;
+
+		&-item{
+			list-style: none;
+			
+
+			&::before{
+				content: '\2713';
+				margin-right: 5px;
+			}
+		}
+
+	}
+
+	&__image{
+		order: -1;
+		width: 100%;
+		height: 21.4rem;
+		@include img($whiteColor);
+		margin-bottom: 2rem;
+
+		@media screen and ($tablet) {
+			max-width:300px;
+			margin-bottom: 0;
+			order: 1;
+		}
+
+		@media  screen and ($desktop) {
+			max-width:469px;
+		}
+	}
+}
+
+
+// about section
+.about{
+	@include section();
+	background: $whiteColor;
+
+	&__wrapper{
+		@include flex();
+	}
+
+	&__title{
+		@include h2(left);
+	}
+
+	&__description{
+		@include p();
+		margin-bottom: 2rem;
+		line-height: 1.5;
+
+		&:last-child{
+			margin-bottom: 0;
+		}
+	}
+
+	&__image{
+		@include img();
+		height: 24.5rem;
+		width: 100%;
+		margin-top: 1.5rem;
+		flex-shrink: 0;
+
+		@media screen and ($tablet){
+			order: -1;
+			width: 300px;
+			margin-top: 0;
+			margin-right: 2.5rem;
+		}
+		@media screen and ($desktop){
+			width: 43rem;
+		}
+	}
+}
+
+// features section
+.features{
+	@include section();
+	background-color: $grayColor;
+
+	&__title{
+		@include h2(center);
+		font-weight: normal;
+	}
+
+	&__items{
+		display: flex;
+		flex-direction: column;
+
+		@media screen and ($tablet) {
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+	}
+
+	.feature{
+		margin-bottom: 1.5rem;
+
+		&:last-child{
+			margin-bottom: 0;
+		}
+
+		@media screen and ($tablet) {
+			flex-basis: calc(50% - 1.1rem);
+		}
+	}
+}
+
+// screenshot section
+.screenshots{
+	@include section();
+
+	&__title{
+		@include h2(center);
+	}
+
+	&__item{
+		display: flex;
+		flex-direction: column;
+
+		@media screen and ($desktop) {
+			flex-direction: row;
+			flex-wrap: wrap;
+			gap: 2.5rem 1.5rem;
+		}
+	}
+
+	.screenshot{
+		margin-bottom: 2.5rem;
+
+		&:last-child{
+			margin-bottom: 0;
+		}
+
+		@media screen and ($desktop){
+			flex-basis: calc(50% - 0.8rem);
+			margin-bottom: 0;
+		}
+	}
+}
+
+// review section
+.reviews{
+	@include section();
+
+	&__title{
+		@include h2(center);
+	}
+
+	&__item{
+		display: flex;
+		flex-direction: column;
+
+		@media screen and ($tablet) {
+			flex-direction: row;
+			flex-wrap: wrap;
+			gap: 2.5rem 1.5rem;
+		}
+	}
+
+	.review{
+		margin-bottom: 2.5rem;
+
+		&:last-child{
+			margin-bottom: 0;
+		}
+
+		@media screen and ($desktop){
+			flex-basis: calc(50% - 2rem);
+			margin-bottom: 0;
+		}
+	}
+}
+
+// prices section
+.prices{
+	@include section();
+
+	&__title{
+		 @include h2(center);
+	}
+	&__item{
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
+		gap:3rem 1rem;
+		align-items: flex-end;
+		justify-content: space-around;	
+	}
+}
+
+// footer
+.footer{
+
+	&__title{
+		@include h2();
+		color: $whiteColor;
+		font-weight: 500;
+	}
+	.contacts{
+		@include section();
+		background: $primaryColor;
+	}
+
+	&__item{
+		display: flex;
+		flex-direction: column;
+
+		@media screen and ($tablet) {
+			flex-direction: row;
+			justify-content: center;
+			gap: 4rem;
+		}
+	}
+
+	&__form{
+		margin-bottom: 3rem;
+		@media screen and ($tablet) {
+			flex-basis: 40rem;
+			margin-bottom: 0;
+		}
+
+		.input, .textarea{
+			margin-bottom: 2.1rem;
+		}
+		.btn{
+			width: 100%;
+		}
+	}
+	&__links{
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 3.2rem;
+
+		.link{
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			gap: 1rem;
+			@include p(18px);
+			color:$whiteColor;
+			margin-bottom: 1.8rem;
+		}
+	}
+	&__social{
+		text-align: center;
+	}
+	.copyright{
+		text-align: center;
+		background: $grayColor;
+		color: $secondaryColor;
+		@include p(12px);
+		padding: 1rem 0 .5rem;
+	}
+}
